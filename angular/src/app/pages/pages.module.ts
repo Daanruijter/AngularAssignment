@@ -45,6 +45,7 @@ import { PageNgxEchartsComponent } from './ui/charts/ngx-echarts';
 import { PageGoogleMapsComponent } from './ui/maps/google-maps';
 import { PageWorldMapComponent } from './ui/maps/world-map';
 import { PageTypographyComponent } from './ui/typography';
+import { PageDaanComponent } from './ui/daan';
 import { PageIconsOptionsComponent } from './ui/icons/icons-options';
 import { PageIconsIfComponent } from './ui/icons/icons-if';
 import { PageIconsSliComponent } from './ui/icons/icons-sli';
@@ -115,6 +116,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     PageRadioButtonsComponent,
     PageSwitchersComponent,
     PageTypographyComponent,
+    PageDaanComponent,
     PageSimpleTablesComponent,
     PageSortingTableComponent,
     PageSearchTableComponent,

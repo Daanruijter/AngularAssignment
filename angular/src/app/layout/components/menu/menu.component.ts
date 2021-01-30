@@ -52,35 +52,13 @@ export class MenuComponent implements OnInit {
 
   ngOnInit() {
     this.getMenuData(this.src);
-    this.triggerPostCredentials()
-  }
-
-  triggerGetEvents(token){
-    
-    let url ="https://qub3z-api-test.herokuapp.com/v1/events"
-    this.httpSv.getEvents(url, token).subscribe(
-      data => {
-        console.log(data)
-       
-      }
-    )
-  }
-  
-  triggerPostCredentials(){
-   
-    let url ="https://qub3z-api-test.herokuapp.com/v1/auth"
-    this.httpSv.sendCredentials(url).subscribe(
-      data => {
-      
-        this.triggerGetEvents(data)
-      }
-    )
   }
 
   getMenuData(url: string) {
     this.httpSv.getData(url).subscribe(
       data => {
         this.menuItems = data;
+        console.log(url)
       },
       err => {
         console.log(err)

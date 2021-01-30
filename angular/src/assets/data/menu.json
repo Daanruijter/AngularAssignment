@@ -47,11 +47,11 @@
   },
   {
     "title": "UI Kit",
-    "groupTitle" : true
+    "groupTitle": true
   },
   {
     "title": "Components",
-    "sub" : [
+    "sub": [
       {
         "title": "Alerts",
         "routing": "alerts"
@@ -69,28 +69,28 @@
         "routing": "buttons"
       },
       {
-        "title" : "Cards",
+        "title": "Cards",
         "routing": "cards"
       },
       {
-        "title" : "Checkboxes",
+        "title": "Checkboxes",
         "routing": "checkboxes"
       },
       {
-        "title" : "Contacts",
+        "title": "Contacts",
         "routing": "contacts"
       },
       {
-        "title" : "Datepickers",
+        "title": "Datepickers",
         "routing": "datepickers"
       },
       {
-        "title" : "Inputs",
+        "title": "Inputs",
         "routing": "inputs"
       },
       {
-        "title" : "Modal windows",
-        "routing" : "modal-windows"
+        "title": "Modal windows",
+        "routing": "modal-windows"
       },
       {
         "title": "Radio buttons",
@@ -105,7 +105,7 @@
         "routing": "selects"
       },
       {
-        "title" : "Switchers",
+        "title": "Switchers",
         "routing": "switchers"
       },
       {
@@ -117,6 +117,10 @@
         "routing": "v-timeline"
       }
     ]
+  },
+  {
+    "title": "Daan",
+    "routing": "daan"
   },
   {
     "title": "Icons",
@@ -199,8 +203,7 @@
       {
         "title": "Ngx charts",
         "routing": "ngx-charts"
-      }
-      ,
+      },
       {
         "title": "Ngx echarts",
         "routing": "ngx-echarts"

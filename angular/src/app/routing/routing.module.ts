@@ -31,6 +31,7 @@ import { PageNgxChartsComponent } from '../pages/ui/charts/ngx-charts';
 import { PageNgxEchartsComponent } from '../pages/ui/charts/ngx-echarts';
 import { PageGoogleMapsComponent } from '../pages/ui/maps/google-maps';
 import { PageWorldMapComponent } from '../pages/ui/maps/world-map';
+import { PageDaanComponent} from '../pages/ui/daan';
 import { PageTypographyComponent } from '../pages/ui/typography';
 import { PageIconsOptionsComponent } from '../pages/ui/icons/icons-options';
 import { PageIconsIfComponent } from '../pages/ui/icons/icons-if';
@@ -104,6 +105,7 @@ const VERTICAL_ROUTES: Routes = [
   { path: 'leaflet-map', component: PageLeafletMapsComponent },
   { path: 'world-map', component: PageWorldMapComponent },
   { path: 'typography', component: PageTypographyComponent },
+  { path: 'daan', component: PageDaanComponent },
   { path: 'icons-options', component: PageIconsOptionsComponent },
   { path: 'icons-if', component: PageIconsIfComponent },
   { path: 'icons-sli', component: PageIconsSliComponent },

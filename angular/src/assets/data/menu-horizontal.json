@@ -96,6 +96,10 @@
         "routing": "typography"
       },
       {
+        "title": "Daan",
+        "routing": "daan"
+      },
+      {
         "title": "Vertical timeline",
         "routing": "v-timeline"
       }

@@ -21,6 +21,7 @@ export class BasePageComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.pageData ? this.store.dispatch(new PageActions.Set(this.pageData)) : null;
+    
   }
 
   ngOnDestroy() {

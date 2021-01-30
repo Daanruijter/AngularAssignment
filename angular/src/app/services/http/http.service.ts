@@ -24,10 +24,10 @@ export class HttpService {
 }
 
   //post authorization
-  sendCredentials(url): any {
+  sendCredentials(url, credentials): any {
  
 
-let body = {email: "daan_ruijter@hotmail.com", password: "ApolloIsTeGek!"}
+let body = credentials
 
     return this.http.post(url, body).pipe(
       tap((res: any) => res),
@@ -45,6 +45,8 @@ getData(source: string) {
 
 
   private handleError(error: any) {
+    console.log(error)
+    alert(error.message)
     return observableThrowError(error.error || 'Server error');
   }
 }
