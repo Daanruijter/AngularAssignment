@@ -16,6 +16,7 @@ import { PagesModule } from './pages/pages.module';
 import { pageDataReducer } from './store/reducers/page-data.reducer';
 import { appSettingsReducer } from './store/reducers/app-settings.reducer';
 import { patientsReducer } from './store/reducers/patients.reducer';
+import {AlwaysAuthGuard} from './routing/AlwaysAuthGuard'
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { patientsReducer } from './store/reducers/patients.reducer';
   ],
   providers: [
     { provide: LocationStrategy, useClass: HashLocationStrategy },
-    { provide: NZ_I18N, useValue: en_US }
+    { provide: NZ_I18N, useValue: en_US },
+    AlwaysAuthGuard
   ],
   bootstrap: [AppComponent]
 })

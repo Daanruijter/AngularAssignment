@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AlwaysAuthGuard } from '../routing/AlwaysAuthGuard'
 
 import { VerticalLayoutComponent } from '../layout/vertical';
 import { HorizontalLayoutComponent } from '../layout/horizontal';
@@ -31,7 +32,7 @@ import { PageNgxChartsComponent } from '../pages/ui/charts/ngx-charts';
 import { PageNgxEchartsComponent } from '../pages/ui/charts/ngx-echarts';
 import { PageGoogleMapsComponent } from '../pages/ui/maps/google-maps';
 import { PageWorldMapComponent } from '../pages/ui/maps/world-map';
-import { PageDaanComponent} from '../pages/ui/daan';
+import { PageEventsComponent } from '../pages/ui/events';
 import { PageTypographyComponent } from '../pages/ui/typography';
 import { PageIconsOptionsComponent } from '../pages/ui/icons/icons-options';
 import { PageIconsIfComponent } from '../pages/ui/icons/icons-if';
@@ -63,7 +64,7 @@ import { PageDatepickersComponent } from '../pages/ui/components/datepickers';
 import { PageAntTableComponent } from '../pages/ui/tables/ant-table';
 
 const VERTICAL_ROUTES: Routes = [
-  { path: 'default-dashboard', component: PageDashboardComponent },
+  { path: 'default-dashboard', component: PageDashboardComponent, },
   { path: 'doctors', component: PageDoctorsComponent },
   { path: 'doctor-profile', component: PageDoctorProfileComponent },
   { path: 'patients', component: PagePatientsComponent },
@@ -105,7 +106,7 @@ const VERTICAL_ROUTES: Routes = [
   { path: 'leaflet-map', component: PageLeafletMapsComponent },
   { path: 'world-map', component: PageWorldMapComponent },
   { path: 'typography', component: PageTypographyComponent },
-  { path: 'daan', component: PageDaanComponent },
+  { path: 'events', component: PageEventsComponent },
   { path: 'icons-options', component: PageIconsOptionsComponent },
   { path: 'icons-if', component: PageIconsIfComponent },
   { path: 'icons-sli', component: PageIconsSliComponent },
@@ -127,6 +128,8 @@ const PUBLIC_ROUTES: Routes = [
   { path: '**', component: Page404Component }
 ];
 
+
+
 export const ROUTES: Routes = [
   {
     path: '',
@@ -136,11 +139,13 @@ export const ROUTES: Routes = [
   {
     path: 'vertical',
     component: VerticalLayoutComponent,
+    canActivate: [AlwaysAuthGuard],
     children: VERTICAL_ROUTES
   },
   {
     path: 'horizontal',
     component: HorizontalLayoutComponent,
+    canActivate: [AlwaysAuthGuard],
     children: VERTICAL_ROUTES
   },
   {
@@ -165,3 +170,5 @@ export const ROUTES: Routes = [
   declarations: []
 })
 export class RoutingModule { }
+
+

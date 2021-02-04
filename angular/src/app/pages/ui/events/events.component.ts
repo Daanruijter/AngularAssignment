@@ -6,12 +6,12 @@ import { HttpService } from '../../../services/http/http.service';
 import { IAppState } from '../../../interfaces/app-state';
 
 @Component({
-  selector: 'page-daan',
-  templateUrl: './daan.component.html',
-  styleUrls: ['./daan.component.scss']
+  selector: 'page-events',
+  templateUrl: './events.component.html',
+  styleUrls: ['./events.component.scss']
 
 })
-export class PageDaanComponent extends BasePageComponent implements OnInit, OnDestroy {
+export class PageEventsComponent extends BasePageComponent implements OnInit, OnDestroy {
   constructor(
     store: Store<IAppState>,
     httpSv: HttpService
@@ -19,7 +19,7 @@ export class PageDaanComponent extends BasePageComponent implements OnInit, OnDe
     super(store, httpSv);
 
     this.pageData = {
-      title: 'Daan',
+      title: 'Events',
       loaded: true,
       breadcrumbs: [
         {
@@ -27,7 +27,7 @@ export class PageDaanComponent extends BasePageComponent implements OnInit, OnDe
           route: 'default-dashboard'
         },
         {
-          title: 'Daan'
+          title: 'Events'
         }
       ]
     };

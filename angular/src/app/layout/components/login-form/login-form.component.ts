@@ -38,13 +38,14 @@ triggerPostCredentials(){
   
     let email = this.loginForm.get('login').value
     let password = this.loginForm.get('pass').value
-    let body = {email: email, password: password}
+    let body = {email, password}
 
     
     let url ="https://qub3z-api-test.herokuapp.com/v1/auth"
     this.httpSv.sendCredentials(url, body).subscribe(
       data => {
       console.log(data)
+      localStorage.setItem("access_token", data.token)
       if(data.token){
 
       

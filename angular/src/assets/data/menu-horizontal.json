@@ -96,8 +96,8 @@
         "routing": "typography"
       },
       {
-        "title": "Daan",
-        "routing": "daan"
+        "title":"Events",
+        "routing": "events"
       },
       {
         "title": "Vertical timeline",

@@ -43,12 +43,18 @@ export class ActionsComponent implements OnInit {
     );
   }
 
+  deleteToken(){
+    localStorage.removeItem("access_token")
+  }
+
   onCloseDropdown() {
     this.closeDropdown.emit(true);
+    
   }
 
   goTo(event: Event, link: string, layout: string = '') {
     event.preventDefault();
+    this.deleteToken();
 
     this.onCloseDropdown();
 
