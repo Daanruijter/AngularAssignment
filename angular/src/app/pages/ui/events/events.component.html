@@ -9,17 +9,43 @@
 </div> -->
 <tc-card class="mb-0">
   <tc-table [rows]="events" [hovered]="true" [pagination]="true" [headerBgColor]="'#336cfb'" [headerColor]="'#fff'">
-    <tc-table-col [columnTitle]="'events'" [columnName]="'events'">
-      <ng-template #tableTDTemplate let-deleted>
+    <tc-table-col [columnTitle]="'Image'" [columnName]="'promo_image'">
+      <ng-template #tableTDTemplate let-value>
+        <tc-avatar [src]="value !== undefined ? value.url : null "></tc-avatar>
+      </ng-template>
 
-        {{deleted}}
-      
-
+    </tc-table-col>
+    <tc-table-col [columnTitle]="'Name'" [columnName]="'name'">
+      <ng-template #tableTDTemplate let-value>
+        {{value}}
       </ng-template>
     </tc-table-col>
-    <!-- {{value}} -->
+    <tc-table-col [columnTitle]="'End datetime'" [columnName]="'description'">
+      <ng-template #tableTDTemplate let-value>
+        {{value}}
+      </ng-template>
+    </tc-table-col>
+    <tc-table-col [columnTitle]="'Max attendees'" [columnName]="'max_attendees'">
+      <ng-template #tableTDTemplate let-value>
+        {{value}}
+      </ng-template>
+    </tc-table-col>
+    <tc-table-col [columnTitle]="'Start datetime'" [columnName]="'start_datetime'">
+      <ng-template #tableTDTemplate let-value>
+        {{value}}
+      </ng-template>
+    </tc-table-col>
+    <tc-table-col [columnTitle]="'End datetime'" [columnName]="'end_datetime'">
+      <ng-template #tableTDTemplate let-value>
+        {{value}}
+      </ng-template>
+    </tc-table-col>
+    <tc-table-col [columnTitle]="'More info'" [columnName]="'end_datetime'">
+      <ng-template #tableTDTemplate let-value>
+        <a href="http://www.ns.nl">{{value}}</a>
+      </ng-template>
+    </tc-table-col>
+
   </tc-table>
 
 </tc-card>
-<!-- </div>
- </div> -->

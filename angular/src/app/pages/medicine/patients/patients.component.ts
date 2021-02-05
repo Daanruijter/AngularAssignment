@@ -76,6 +76,7 @@ export class PagePatientsComponent extends BasePageComponent implements OnInit, 
     this.store.select('patients').subscribe(patients => {
       if (patients && patients.length) {
         this.patients = patients;
+        console.log(this.patients)
 
         !this.pageData.loaded ? this.setLoaded() : null;
       }
