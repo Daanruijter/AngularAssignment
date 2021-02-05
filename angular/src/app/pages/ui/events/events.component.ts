@@ -58,7 +58,22 @@ async  triggerGetEvents(){
     let url ="https://qub3z-api-test.herokuapp.com/v1/events"
     await this.httpSv.getEvents(url).subscribe(
       data => {
-        console.log(data)
+        
+data.map(data => {
+  // data.end_datetime = data.end_datetime.getDay()
+
+let date = new Date(data.end_datetime)
+let date2 =  date.toLocaleDateString()
+
+
+data.end_datetime = date2
+
+console.log(date2)
+
+      })
+
+
+console.log(data)
         this.events = data
         
        

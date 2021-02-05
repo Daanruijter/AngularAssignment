@@ -49,10 +49,12 @@ export class PageAppointmentsComponent extends BasePageComponent implements OnIn
   }
 
   ngOnInit() {
+    
     super.ngOnInit();
 
     this.getData('assets/data/appointments.json', 'appointments', 'setLoaded');
     this.getData('assets/data/doctors.json', 'doctors');
+    console.log(this.appointments)
   }
 
   ngOnDestroy() {
