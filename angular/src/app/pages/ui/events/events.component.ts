@@ -5,6 +5,7 @@ import { BasePageComponent } from '../../base-page/base-page.component';
 import { HttpService } from '../../../services/http/http.service';
 import { IAppState } from '../../../interfaces/app-state';
 
+
 @Component({
   selector: 'page-events',
   templateUrl: './events.component.html',
@@ -12,12 +13,15 @@ import { IAppState } from '../../../interfaces/app-state';
 
 })
 export class PageEventsComponent extends BasePageComponent implements OnInit, OnDestroy {
+  events: [];
+
   constructor(
     store: Store<IAppState>,
     httpSv: HttpService
   ) {
     super(store, httpSv);
 
+    
     this.pageData = {
       title: 'Events',
       loaded: true,
@@ -31,12 +35,16 @@ export class PageEventsComponent extends BasePageComponent implements OnInit, On
         }
       ]
     };
+    this.events=[];
   }
-  eventData;
+ 
+  value ="testvalueeee"
+  value1 = [4,7,8]
+
 
   ngOnInit() {
 
-    // this.triggerPostCredentials()
+    this.triggerGetEvents()
     super.ngOnInit();
   }
 
@@ -45,18 +53,18 @@ export class PageEventsComponent extends BasePageComponent implements OnInit, On
   }
 
 
-// async  triggerGetEvents(token){
+async  triggerGetEvents(){
     
-//     let url ="https://qub3z-api-test.herokuapp.com/v1/events"
-//     await this.httpSv.getEvents(url, token).subscribe(
-//       data => {
-//         console.log(data)
-//         this.eventData = data
+    let url ="https://qub3z-api-test.herokuapp.com/v1/events"
+    await this.httpSv.getEvents(url).subscribe(
+      data => {
+        console.log(data)
+        this.events = data
         
        
-//       }
-//     )
-//   }
+      }
+    )
+  }
   
   // triggerPostCredentials(){
    

@@ -11,16 +11,21 @@ export class HttpService {
   constructor(private http: HttpClient) {}
 
  //fetch the event data
- getEvents(url, token): any {
+ getEvents(url): any {
 
    
+console.log(url)
+let token = localStorage.getItem("access_token")
+  
 
-  console.log(token)
-
-  return this.http.get(url, {headers: new HttpHeaders().set('Authorization', `Bearer ${token.token}`)}).pipe(
-    tap((res: any) => res),
+  return this.http.get(url, {headers: new HttpHeaders().set('Authorization', `Bearer ${token}`)}).pipe(
+    tap((res: any) => {
+      
+      let result = res
+      console.log(result)}),
     catchError(this.handleError)
   );
+  
 }
 
   //post authorization

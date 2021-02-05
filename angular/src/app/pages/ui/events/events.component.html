@@ -1,6 +1,4 @@
-
-
-  
+<!--   
   <div class="row">
     <div class="col-md-4">
 
@@ -8,8 +6,20 @@
  {{event.name}}
   {{event._description}}
   <img [src]= "event.promo_image?.url">
-</div>
+</div> -->
+<tc-card class="mb-0">
+  <tc-table [rows]="events" [hovered]="true" [pagination]="true" [headerBgColor]="'#336cfb'" [headerColor]="'#fff'">
+    <tc-table-col [columnTitle]="'events'" [columnName]="'events'">
+      <ng-template #tableTDTemplate let-deleted>
 
- </div>
- </div>
+        {{deleted}}
+      
 
+      </ng-template>
+    </tc-table-col>
+    <!-- {{value}} -->
+  </tc-table>
+
+</tc-card>
+<!-- </div>
+ </div> -->
