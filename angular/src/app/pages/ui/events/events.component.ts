@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-
+import {  Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { BasePageComponent } from '../../base-page/base-page.component';
 import { HttpService } from '../../../services/http/http.service';
@@ -17,7 +17,8 @@ export class PageEventsComponent extends BasePageComponent implements OnInit, On
 
   constructor(
     store: Store<IAppState>,
-    httpSv: HttpService
+    httpSv: HttpService,
+    private router: Router
   ) {
     super(store, httpSv);
 
@@ -38,9 +39,6 @@ export class PageEventsComponent extends BasePageComponent implements OnInit, On
     this.events = [];
   }
 
-  value = "testvalueeee"
-  value1 = [4, 7, 8]
-
 
   ngOnInit() {
 
@@ -60,13 +58,11 @@ export class PageEventsComponent extends BasePageComponent implements OnInit, On
       data => {
 
         data.map(data => {
-          // data.end_datetime = data.end_datetime.getDay()
-
+     
 
           data.end_datetime = this.convertDate(data.end_datetime)
           data.start_datetime = this.convertDate(data.start_datetime)
-          data.more_info = "more info about" + data.name
-          
+                
 
         })
 
@@ -79,9 +75,9 @@ export class PageEventsComponent extends BasePageComponent implements OnInit, On
     )
   }
 
-  redirectToDetailsPage($event: Event, index:any){
-    console.log($event)
-    console.log(index)
+  redirectToDetailsPage(eventName:string){
+    this.router.navigate(['/vertical/event-details'], { queryParams: { event: eventName}} );
+    console.log(eventName)
   
 }
 
@@ -93,17 +89,14 @@ export class PageEventsComponent extends BasePageComponent implements OnInit, On
     return convertedDate
 
   }
-
-  // triggerPostCredentials(){
-
-  //   let url ="https://qub3z-api-test.herokuapp.com/v1/auth"
-  //   this.httpSv.sendCredentials(url).subscribe(
-  //     data => {
-
-  //       this.triggerGetEvents(data)
-  //     }
-  //   )
-  // }
 }
 
 
+
+
+
+
+
+ 
+
+ 

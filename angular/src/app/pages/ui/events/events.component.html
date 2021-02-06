@@ -9,7 +9,7 @@
     </tc-table-col>
     <tc-table-col [columnTitle]="'Name (click for more info)'" [columnName]="'name'">
       <ng-template #tableTDTemplate let-value>
-        {{value}}
+        <div (click)="redirectToDetailsPage(value)">{{value}}</div>
       </ng-template>
     </tc-table-col>
     <!-- <tc-table-col  [columnTitle]="'Description'" [columnName]="'description'">
