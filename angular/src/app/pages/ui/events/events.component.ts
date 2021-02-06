@@ -21,7 +21,7 @@ export class PageEventsComponent extends BasePageComponent implements OnInit, On
   ) {
     super(store, httpSv);
 
-    
+
     this.pageData = {
       title: 'Events',
       loaded: true,
@@ -35,11 +35,11 @@ export class PageEventsComponent extends BasePageComponent implements OnInit, On
         }
       ]
     };
-    this.events=[];
+    this.events = [];
   }
- 
-  value ="testvalueeee"
-  value1 = [4,7,8]
+
+  value = "testvalueeee"
+  value1 = [4, 7, 8]
 
 
   ngOnInit() {
@@ -48,45 +48,58 @@ export class PageEventsComponent extends BasePageComponent implements OnInit, On
     super.ngOnInit();
   }
 
-    ngOnDestroy() {
+  ngOnDestroy() {
     super.ngOnDestroy();
   }
 
 
-async  triggerGetEvents(){
-    
-    let url ="https://qub3z-api-test.herokuapp.com/v1/events"
+  async triggerGetEvents() {
+
+    let url = "https://qub3z-api-test.herokuapp.com/v1/events"
     await this.httpSv.getEvents(url).subscribe(
       data => {
-        
-data.map(data => {
-  // data.end_datetime = data.end_datetime.getDay()
 
-let date = new Date(data.end_datetime)
-let date2 =  date.toLocaleDateString()
+        data.map(data => {
+          // data.end_datetime = data.end_datetime.getDay()
 
 
-data.end_datetime = date2
+          data.end_datetime = this.convertDate(data.end_datetime)
+          data.start_datetime = this.convertDate(data.start_datetime)
+          data.more_info = "more info about" + data.name
+          
 
-console.log(date2)
-
-      })
+        })
 
 
-console.log(data)
+        console.log(data)
         this.events = data
-        
-       
+
+
       }
     )
   }
+
+  redirectToDetailsPage($event: Event, index:any){
+    console.log($event)
+    console.log(index)
   
+}
+
+  //Convert the date
+  convertDate(dateString: string) {
+
+    let dateToConvert = new Date(dateString)
+    let convertedDate = dateToConvert.toLocaleDateString()
+    return convertedDate
+
+  }
+
   // triggerPostCredentials(){
-   
+
   //   let url ="https://qub3z-api-test.herokuapp.com/v1/auth"
   //   this.httpSv.sendCredentials(url).subscribe(
   //     data => {
-      
+
   //       this.triggerGetEvents(data)
   //     }
   //   )
