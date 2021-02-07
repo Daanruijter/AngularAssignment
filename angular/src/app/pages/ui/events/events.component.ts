@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import {  Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { BasePageComponent } from '../../base-page/base-page.component';
 import { HttpService } from '../../../services/http/http.service';
@@ -58,28 +58,19 @@ export class PageEventsComponent extends BasePageComponent implements OnInit, On
       data => {
 
         data.map(data => {
-     
 
           data.end_datetime = this.convertDate(data.end_datetime)
           data.start_datetime = this.convertDate(data.start_datetime)
-                
 
         })
-
-
-        console.log(data)
         this.events = data
-
-
       }
     )
   }
 
-  redirectToDetailsPage(eventName:string){
-    this.router.navigate(['/vertical/event-details'], { queryParams: { event: eventName}} );
-    console.log(eventName)
-  
-}
+  redirectToDetailsPage(eventName: string) {
+    this.router.navigate(['/vertical/event-details'], { queryParams: { event: eventName } });
+  }
 
   //Convert the date
   convertDate(dateString: string) {
@@ -97,6 +88,6 @@ export class PageEventsComponent extends BasePageComponent implements OnInit, On
 
 
 
- 
 
- 
+
+

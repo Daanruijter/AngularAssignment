@@ -38,7 +38,6 @@ export class TCTableColComponent implements OnInit {
   }
 
   ngOnInit() {
-console.log(this.tdTemplate)
 
     this.setConfig();
     this.table.addColumn(this);

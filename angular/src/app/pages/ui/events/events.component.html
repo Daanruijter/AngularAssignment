@@ -1,22 +1,15 @@
-
 <tc-card class="mb-0">
   <tc-table [rows]="events" [hovered]="true" [pagination]="true" [headerBgColor]="'#336cfb'" [headerColor]="'#fff'">
     <tc-table-col [columnTitle]="'Image'" [columnName]="'promo_image'">
       <ng-template #tableTDTemplate let-value>
         <tc-avatar [src]="value !== undefined ? value.url : null "></tc-avatar>
       </ng-template>
-
     </tc-table-col>
-    <tc-table-col [columnTitle]="'Name (click for more info)'" [columnName]="'name'">
+    <tc-table-col [columnTitle]="'Name (click for information)'" [columnName]="'name'">
       <ng-template #tableTDTemplate let-value>
-        <div (click)="redirectToDetailsPage(value)">{{value}}</div>
+        <div class = "event-name" (click)="redirectToDetailsPage(value)">{{value}}</div>
       </ng-template>
     </tc-table-col>
-    <!-- <tc-table-col  [columnTitle]="'Description'" [columnName]="'description'">
-      <ng-template  #tableTDTemplate let-value>
-        {{value}}
-      </ng-template>
-    </tc-table-col> -->
     <tc-table-col [columnTitle]="'Max attendees'" [columnName]="'max_attendees'">
       <ng-template #tableTDTemplate let-value>
         {{value}}
@@ -32,12 +25,5 @@
         {{value}}
       </ng-template>
     </tc-table-col>
-    <!-- <tc-table-col [columnTitle]="'More info'" [columnName]="'more_info'">
-      <ng-template #tableTDTemplate let-value>
-        <div (click)="redirectToDetailsPage($event, value)">{{value}}</div>
-      </ng-template>
-    </tc-table-col> -->
-
   </tc-table>
-
 </tc-card>

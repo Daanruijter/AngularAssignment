@@ -8,31 +8,28 @@ import { catchError, tap } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class HttpService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
- //fetch the event data
- getEvents(url): any {
+  //fetch the event data
+  getEvents(url): any {
 
-   
-console.log(url)
-let token = localStorage.getItem("access_token")
-  
+    let token = localStorage.getItem("access_token")
 
-  return this.http.get(url, {headers: new HttpHeaders().set('Authorization', `Bearer ${token}`)}).pipe(
-    tap((res: any) => {
-      
-      let result = res
-      console.log(result)}),
-    catchError(this.handleError)
-  );
-  
-}
+    return this.http.get(url, { headers: new HttpHeaders().set('Authorization', `Bearer ${token}`) }).pipe(
+      tap((res: any) => {
+        res
 
-  //post authorization
+      }),
+      catchError(this.handleError)
+    );
+
+  }
+
+  //post credentials for authorization
   sendCredentials(url, credentials): any {
- 
 
-let body = credentials
+
+    let body = credentials
 
     return this.http.post(url, body).pipe(
       tap((res: any) => res),
@@ -40,12 +37,12 @@ let body = credentials
     );
   }
 
-getData(source: string) {
-  return this.http.get(source).pipe(
-    tap((res: any) => res),
-    catchError(this.handleError)
-  );
-}
+  getData(source: string) {
+    return this.http.get(source).pipe(
+      tap((res: any) => res),
+      catchError(this.handleError)
+    );
+  }
 
 
 

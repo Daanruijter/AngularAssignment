@@ -14,57 +14,41 @@ import { Router } from '@angular/router';
 export class LoginFormComponent extends BasePageComponent implements OnInit {
   loginForm: FormGroup;
   httpSv: HttpService
-   
-  constructor(private fb: FormBuilder, router: Router,  httpSv: HttpService,   store: Store<IAppState>, ) { super(store, httpSv);
-    
-    
+
+  constructor(private fb: FormBuilder, router: Router, httpSv: HttpService, store: Store<IAppState>,) {
+    super(store, httpSv);
+
+
   }
-  
 
   ngOnInit() {
 
-    
     this.loginForm = this.fb.group({
 
       login: ['', Validators.required],
       pass: ['', Validators.required]
 
-
     });
-
   }
 
-triggerPostCredentials(){
-  
+  triggerPostCredentials() {
+
     let email = this.loginForm.get('login').value
     let password = this.loginForm.get('pass').value
-    let body = {email, password}
+    let body = { email, password }
+    let url = "https://qub3z-api-test.herokuapp.com/v1/auth"
 
-    
-    let url ="https://qub3z-api-test.herokuapp.com/v1/auth"
     this.httpSv.sendCredentials(url, body).subscribe(
       data => {
-      console.log(data)
-      localStorage.setItem("access_token", data.token)
-      if(data.token){
-
-      
-        window.location.href = 'http://localhost:4200/';
-      
-
+        localStorage.setItem("access_token", data.token)
+        if (data.token) {
+          window.location.href = 'http://localhost:4200/';
+        }
       }
-        // this.triggerGetEvents(data)
-      }
-      
     )
-    
   }
 
-  
-  submitCredentials(){
-
-    
-
-     this.triggerPostCredentials()
+  submitCredentials() {
+    this.triggerPostCredentials()
   }
 }

@@ -6,55 +6,6 @@ import { HttpService } from '../../../services/http/http.service';
 import { IAppState } from '../../../interfaces/app-state';
 
 
-
-export interface ProfileImage {
-  _id: string;
-  url: string;
-  s3_url: string;
-  created_at: Date;
-  __v: number;
-  id: string;
-}
-
-export interface Subscription {
-  _id: string;
-  expires_at?: any;
-  created_at: Date;
-  updated_at: Date;
-  is_active: boolean;
-  id: string;
-}
-
-export interface RootObject {
-  _id: string;
-  roles: string[];
-  deleted: boolean;
-  deleted_at?: any;
-  first_name: string;
-  last_name: string;
-  nickname: string;
-  email: string;
-  date_of_birth: Date;
-  gender: string;
-  phone: string;
-  location: string;
-  created_at: Date;
-  updated_at: Date;
-  __v: number;
-  profile_image: ProfileImage;
-  address: string;
-  business_association: string;
-  country: string;
-  house_number: number;
-  subscription: Subscription;
-  zipcode: string;
-  id: string;
-}
-
-
-
-
-
 @Component({
   selector: 'app-events-detailpage',
   templateUrl: './events-detailpage.component.html',
@@ -62,7 +13,7 @@ export interface RootObject {
 })
 export class EventsDetailpageComponent extends BasePageComponent implements OnInit, OnDestroy {
   eventDetails: [];
-  
+
 
   constructor(
     store: Store<IAppState>,
@@ -71,7 +22,7 @@ export class EventsDetailpageComponent extends BasePageComponent implements OnIn
   ) {
     super(store, httpSv);
     this.pageData = {
-      title: 'More event info',
+      title: 'More event information',
       loaded: true,
     };
     this.eventDetails = []
@@ -106,7 +57,6 @@ export class EventsDetailpageComponent extends BasePageComponent implements OnIn
         })
 
         this.eventDescription = eventData[0].description
-
         let eventDetails = eventData[0].attendees
 
 
