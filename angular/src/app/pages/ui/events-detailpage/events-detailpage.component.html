@@ -1,5 +1,7 @@
 
 <tc-card class="mb-0">
+    <div><h4>Event Description</h4>{{eventDescription}}</div><br>
+    <div><h4>Attendees</h4></div>
     <tc-table [rows]="eventDetails" [hovered]="true" [pagination]="true" [headerBgColor]="'#336cfb'" [headerColor]="'#fff'">
         <tc-table-col [columnTitle]="'Image'" [columnName]="'profile_image'">
             <ng-template #tableTDTemplate let-value>
